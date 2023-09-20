@@ -15,7 +15,7 @@ provider "aws" {
 module "default_vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "default_vpc"
+  name = "default_vpc_${terraform.workspace}"
   cidr = "10.0.0.0/16"
 
   azs             = ["ap-northeast-2a", "ap-northeast-2b"]
@@ -26,6 +26,8 @@ module "default_vpc" {
   enable_nat_gateway     = true
   single_nat_gateway     = false
   one_nat_gateway_per_az = true
+
+  default_security_group_name = "default_security_group"
 
   tags = {
     Terraform   = "true"
