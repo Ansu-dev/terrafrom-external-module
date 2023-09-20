@@ -29,6 +29,6 @@ module "default_vpc" {
 
   tags = {
     Terraform   = "true"
-    Environment = terraform.workspaces
+    Environment = terraform.workspace
   }
 }
