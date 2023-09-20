@@ -42,6 +42,7 @@ resource "aws_instance" "web_instances" {
   }
 }
 
+# load balancer type이 지정되지 않아 외부 모듈 보단 resource로 커스텀하는게 더 좋음
 module "web_elb" {
   source  = "terraform-aws-modules/elb/aws"
   version = "~> 2.0"
